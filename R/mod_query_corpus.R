@@ -10,12 +10,25 @@
 mod_query_corpus_ui <- function(id) {
   ns <- NS(id)
   tagList(
-    shiny::textInput(ns("input_text"), label = "Start typing a quote from The Office", value = "That's what she said"),
-    reactable::reactableOutput(ns("text_output")),
+
+    fluidRow(
+
+      column(
+        5,
+        shiny::textInput(ns("input_text"), label = "Start typing a quote from The Office", value = "That's what she said"),
+        reactable::reactableOutput(ns("text_output"))
+      ),
+
+      column(7,
+             shiny::sliderInput(ns("expand_selection"), label = "Expand conversation", min = 2, max = 8, step = 2, value = 2),
+             gt::gt_output(ns("final_gt"))
+      )
+
+    )
+    ,
     # textOutput(ns("print_interim_line_index")),
     # DT::DTOutput(ns("bra_print")),
-    shiny::sliderInput(ns("expand_selection"), label = "Expand conversation", min = 2, max = 8, step = 2, value = 2),
-    gt::gt_output(ns("final_gt"))
+
 
   )
 }

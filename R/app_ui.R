@@ -10,7 +10,7 @@ app_ui <- function(request) {
     golem_add_external_resources(),
     # Your application UI logic
     fluidPage(
-      h1("QuotableOffice"),
+      h1("The Quotable Office"),
       column(
         width = 12, align = "center",
         mod_query_corpus_ui("query_corpus_1"),
