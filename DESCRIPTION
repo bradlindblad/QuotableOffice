@@ -13,6 +13,7 @@ Imports:
     config,
     dplyr,
     golem,
+    gt,
     shiny
 Suggests: 
     spelling,

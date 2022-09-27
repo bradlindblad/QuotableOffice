@@ -13,7 +13,7 @@ app_ui <- function(request) {
       h1("QuotableOffice"),
       column(
         width = 12, align = "center",
-        mod_query_corpus_ui("query_corpus_1")
+        mod_query_corpus_ui("query_corpus_1"),
       )
     )
   )

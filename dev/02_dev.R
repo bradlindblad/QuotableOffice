@@ -19,12 +19,12 @@ attachment::att_amend_desc()
 
 ## Add modules ----
 ## Create a module infrastructure in R/
-golem::add_module(name = "query_corpus", with_test = TRUE) # Name of the module
+golem::add_module(name = "expand_and_plot", with_test = TRUE) # Name of the module
 golem::add_module(name = "expand_selection", with_test = TRUE) # Name of the module
 
 ## Add helper functions ----
 ## Creates fct_* and utils_*
-golem::add_fct("get_text", with_test = TRUE)
+golem::add_fct("plot_gt", with_test = TRUE)
 golem::add_utils("helpers", with_test = TRUE)
 
 ## External resources
