@@ -14,6 +14,7 @@ Imports:
     dplyr,
     golem,
     gt,
+    reactable,
     shiny
 Suggests: 
     spelling,
