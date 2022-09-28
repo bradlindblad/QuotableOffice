@@ -10,7 +10,36 @@ app_ui <- function(request) {
     golem_add_external_resources(),
     # Your application UI logic
     fluidPage(
-      h1("The Quotable Office"),
+
+      tags$head(
+        tags$script(src = "https://platform.twitter.com/widgets.js", charset = "utf-8"),
+        tags$link(href = "https://fonts.googleapis.com/css?family=Roboto+Mono", rel = "stylesheet"),
+        tags$style(HTML('
+      * {
+        font-family: Fira Mono;
+        font-size: 100%;
+      }
+      #sidebar {
+         background-color: #fff;
+         border: 0px;
+      }
+      .rt-th {
+        display: none;
+      }
+      .rt-noData {
+        display: none;
+      }
+      .rt-pagination-nav {
+        float: left;
+        width: 100%;
+      }
+    '))
+      ),
+
+
+
+
+      h1("the quotable office"),
       column(
         width = 12, align = "center",
         mod_query_corpus_ui("query_corpus_1"),
