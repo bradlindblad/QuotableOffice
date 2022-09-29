@@ -26,6 +26,8 @@ get_index <- function(lines, string, idx) {
 # idx = 5
   # string <- "that's what she"
 
+  if(!is.null(string) & !is.null(idx)){
+
   string <- as.character(string)
   string <- tolower(string)
   lines$text <- tolower(lines$text)
@@ -39,7 +41,7 @@ get_index <- function(lines, string, idx) {
   # line_index <- lines |>
     dplyr::slice(idx)
 
-
+}
 
 }
 

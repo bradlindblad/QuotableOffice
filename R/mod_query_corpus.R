@@ -74,12 +74,25 @@ mod_query_corpus_server <- function(id, r) {
     )
 
     # FOR PRINTING ONLY ----
-    output$bra_print <- DT::renderDT(get_index(lines, input$input_text,  selected()))
+    # output$bra_print <- DT::renderDT({
+    #
+    #   get_index(lines, input$input_text,  selected())
+    #   })
 
     # 3. Render gt
 
 
-        output$final_gt <- gt::render_gt({plot_gt(expand_selection(selected_line_index(), input$expand_selection))})
+        output$final_gt <- gt::render_gt({
+          validate(
+            need(selected_line_index() > 0, message = "A line must be selected", label = "")
+          )
+
+          plot_gt(
+            expand_selection(
+              selected_line_index()
+              , input$expand_selection)
+            )}
+          )
 
 
 
