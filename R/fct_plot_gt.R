@@ -14,6 +14,15 @@ plot_gt <- function(df) {
       "Michael", "Phyllis", "Stanley"
     )
 
+    title <- df |>
+      dplyr::pull(episode_name) |> unique()
+    title_meta <- df |>
+      dplyr::mutate(meta =
+        paste0("Season ", season, " Ep.", episode)
+      ) |> dplyr::pull(meta) |> unique()
+    highlight_row <- ceiling(nrow(df)/2)
+
+
     df <- df |>
       dplyr::mutate(Character = dplyr::case_when(
         character %in% headshots ~ paste0("images/",character,".png"),
@@ -36,5 +45,24 @@ plot_gt <- function(df) {
           height = as.numeric(92)
         )
       }
-    )
+    ) |>
+
+      gt::tab_header(
+        title = title,
+        subtitle = title_meta
+      ) |>
+
+      gt::tab_source_note(
+        gt::md("Source: [schrute R package](https://bradlindblad.github.io/schrute/) by [Brad Lindblad](https://technistema.com/)")
+      ) |>
+
+      gt::tab_style(
+        gt::cell_text(color = "blue"),
+        locations = gt::cells_body(
+          columns = everything(),
+          rows = highlight_row
+
+        )
+      )
+
 }

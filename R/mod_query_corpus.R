@@ -14,15 +14,51 @@ mod_query_corpus_ui <- function(id) {
     fluidRow(
 
       column(
-        5,
-        shiny::textInput(ns("input_text"), label = "Start typing a quote from The Office", value = "That's what she said"),
+        4,
+
+
+
+
+        h1("the quotable office"),
+        # column(
+        #   width = 12, align = "left",
+          tags$br(),
+          p(HTML('<p>Ever wanted to use a quote from <a href="https://www.imdb.com/title/tt0386676/">the office</a> in a text
+convo with your friends, but couldn’t quite remember how it went? You’ve
+come to the right place.</p>
+<p>Now, all you have to do is start typing how you think the line goes
+and <strong>the quotable office</strong> will find the line you’re
+looking for.</p>
+<p>To use it:</p>
+<ul>
+<li>Start typing the line below, the table below will find all
+matches</li>
+<li>Once you find the line, click it and the entire conversation will
+come up</li>
+</ul>
+<p>Made with the <a href="https://bradlindblad.github.io/schrute/">schrute</a> R package by
+<a href="https://technistema.com/">Brad Lindblad</a></p>
+
+')),
+tags$br(),
+
+
+
+
+
+
+        shiny::textInput(ns("input_text"), width = "80%", label = "Start typing a quote from The Office", value = "That's what she said"),
+        tags$br(),
         reactable::reactableOutput(ns("text_output"))
       ),
+      column(1),
 
-      column(7,
+      column(6,align = "left",
+             tags$br(),
              shiny::sliderInput(ns("expand_selection"), label = "Expand conversation", min = 2, max = 8, step = 2, value = 2),
              gt::gt_output(ns("final_gt"))
-      )
+      ),
+      column(1)
 
     )
     ,
@@ -40,14 +76,17 @@ mod_query_corpus_server <- function(id, r) {
   moduleServer(id, function(input, output, session) {
     ns <- session$ns
 
-    # 1. Print DT so can select index
-    output$text_output <- reactable::renderReactable(
+    # 1. Print reactable so can select index
+    output$text_output <- reactable::renderReactable({
 
+      validate(
+        need(input$input_text, message = "Text must be entered", label = "")
+      )
         reactable::reactable(get_text(lines, input$input_text),onClick = "select",
-                             selection = "single")
+                             selection = "single", defaultPageSize = 5, defaultSelected = 1)
 
 
-    )
+    })
 
     # 1.1 Print selected index from above
     interim_row_index <- reactive(

@@ -23,7 +23,7 @@ expand_selection <- function(idx=5, number_lines=4) {
 
   lines |>
     dplyr::filter(index %in% filter_seq) |>
-    dplyr::select(character,text)
+    dplyr::select(character,text,episode, season, episode_name)
 
 
 }
