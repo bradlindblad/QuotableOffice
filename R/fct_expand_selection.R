@@ -5,21 +5,9 @@
 #' @return The return value, if any, from executing the function.
 #'
 #' @noRd
-expand_selection <- function(idx=5, number_lines="Jim") {
+expand_selection <- function(idx=5, number_lines=4) {
   # idx = 5
   # number_lines = 4
-
-  if(number_lines == "Jim"){
-    number_lines = 2
-  }
-  if(number_lines == "James"){
-    number_lines = 4
-  }
-  if(number_lines == "Jimothy"){
-    number_lines = 8
-  }
-
-  # number_lines <- as.numeric(number_lines)
   idx = as.numeric(idx)
   split <- number_lines/2
 

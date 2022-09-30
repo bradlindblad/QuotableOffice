@@ -48,7 +48,6 @@ tags$br(),
 
 
         shiny::textInput(ns("input_text"), width = "80%", label = "Start typing a quote from The Office", value = "That's what she said"),
-
         tags$br(),
         reactable::reactableOutput(ns("text_output"))
       ),
@@ -56,14 +55,8 @@ tags$br(),
 
       column(6,align = "left",
              tags$br(),
-
-             # shiny::sliderInput(ns("expand_selection"), label = "Expand conversation", min = 2, max = 8, step = 2, value = 2),
-             gt::gt_output(ns("final_gt")),
-             tags$br(),
-             fluidRow(column(12,align = "center",
-             selectInput(ns("expand_selection"), multiple = FALSE, choices = c("Jim", "James", "Jimothy"),  selected = "Jim", label = "Expand convo", selectize = T),
-             ))
-             # downloadButton(ns("save_gt"), label = "Save as image")
+             shiny::sliderInput(ns("expand_selection"), label = "Expand conversation", min = 2, max = 8, step = 2, value = 2),
+             gt::gt_output(ns("final_gt"))
       ),
       column(1)
 
@@ -140,35 +133,10 @@ mod_query_corpus_server <- function(id, r) {
             )}
           )
 
-        save_gt_tbl <- reactive({
-          plot_gt(
-            expand_selection(
-              selected_line_index()
-              , input$expand_selection)
-          )
-        })
 
 
 
 
-      # save image of gt
-      my_image <- reactive({
-        outfile <- tempfile(fileext = ".png")
-
-        gt::gtsave(
-          data = {save_gt_tbl()},
-          filename = outfile
-        )
-
-      })
-
-      output$save_gt <- downloadHandler(
-        filename = "office_quote.png",
-        content = function(file) {
-          file.copy(my_image(), file)
-        },
-        contentType = "image/png"
-      )
 
 
 

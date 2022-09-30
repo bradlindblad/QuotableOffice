@@ -6,7 +6,7 @@
 #'
 #' @noRd
 plot_gt <- function(df) {
-    # df <- df[1:3,]
+
     headshots <- c(
       "Andy", "Creed", "Erin", "Kevin", "Oscar",
       "Roy", "Toby", "Angela", "Darryl", "Jim",
@@ -63,11 +63,6 @@ plot_gt <- function(df) {
           rows = highlight_row
 
         )
-      ) |>
-      gt::cols_width(
-        Line ~ px(600)
       )
-
-    # gt::gtsave(v, "/home/brad/Desktop/gt.png")
 
 }
