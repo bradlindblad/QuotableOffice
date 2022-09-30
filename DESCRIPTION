@@ -15,7 +15,8 @@ Imports:
     golem,
     gt,
     reactable,
-    shiny
+    shiny,
+    waiter
 Suggests: 
     spelling,
     testthat (>= 3.0.0)

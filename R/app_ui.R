@@ -5,6 +5,7 @@
 #' @import shiny
 #' @noRd
 app_ui <- function(request) {
+
   tagList(
     # Leave this function for adding external resources
     golem_add_external_resources(),
@@ -36,7 +37,8 @@ app_ui <- function(request) {
     ),
 
     fluidPage(
-
+      waiter::use_waiter(),
+      waiter::autoWaiter(html = waiter::spin_3(), color = waiter::transparent(0.6)),
 
 
 
