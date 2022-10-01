@@ -35,7 +35,7 @@ expand_selection <- function(idx=5, number_lines="Jim") {
 
   lines |>
     dplyr::filter(index %in% filter_seq) |>
-    dplyr::select(character,text,episode, season, episode_name)
+    dplyr::select(character,text,episode, season, episode_name, air_date, imdb_rating)
 
 
 }

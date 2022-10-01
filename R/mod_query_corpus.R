@@ -62,8 +62,13 @@ tags$br(),
              gt::gt_output(ns("final_gt")),
              tags$br(),
              fluidRow(column(12,align = "center",
+
+
              selectInput(ns("expand_selection"), multiple = FALSE, choices = c("Jim", "James", "Jimothy"),  selected = "Jim", label = "Expand convo", selectize = T),
              ))
+
+
+
              # downloadButton(ns("save_gt"), label = "Save as image")
       ),
       column(1)
@@ -152,7 +157,7 @@ mod_query_corpus_server <- function(id, r) {
               , input$expand_selection)
             )}
           )
-
+    # outputOptions(output, "final_gt", suspendWhenHidden = FALSE)
         # save_gt_tbl <- reactive({
         #   plot_gt(
         #     expand_selection(
@@ -160,7 +165,6 @@ mod_query_corpus_server <- function(id, r) {
         #       , input$expand_selection)
         #   )
         # })
-
 
 
 

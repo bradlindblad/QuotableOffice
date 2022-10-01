@@ -6,7 +6,7 @@
 #'
 #' @noRd
 plot_gt <- function(df) {
-    # df <- df[1:3,]
+    # df <- lines[1:3,]
     headshots <- c(
       "Andy", "Creed", "Erin", "Kevin", "Oscar",
       "Roy", "Toby", "Angela", "Darryl", "Jim",
@@ -16,11 +16,21 @@ plot_gt <- function(df) {
 
     title <- df |>
       dplyr::pull(episode_name) |> unique()
+    rating <- df |>
+      dplyr::pull(imdb_rating) |> unique()
     title_meta <- df |>
       dplyr::mutate(meta =
-        paste0("Season ", season, " Ep.", episode)
+        paste0("Season ", season, " Ep.", episode, "</br>", "IMDb Rating: ", rating, "/10", "</br>Original air date: ", air_date)
       ) |> dplyr::pull(meta) |> unique()
     highlight_row <- ceiling(nrow(df)/2)
+
+    air_date <- df |> dplyr::pull(air_date) |> unique()
+    # footer_text <- paste0(
+    #   "Source: [schrute R package](https://bradlindblad.github.io/schrute/) by [Brad Lindblad](https://technistema.com/)</br>",
+    #
+    #   "Original Air Date: ",
+    #   paste0(air_date)
+    # )
 
 
     df <- df |>
@@ -49,12 +59,17 @@ plot_gt <- function(df) {
 
       gt::tab_header(
         title = title,
-        subtitle = title_meta
+        subtitle = gt::md(title_meta)
       ) |>
 
       gt::tab_source_note(
-        gt::md("Source: [schrute R package](https://bradlindblad.github.io/schrute/) by [Brad Lindblad](https://technistema.com/)")
+        gt::md("Source: [schrute R package](https://bradlindblad.github.io/schrute/) by [Brad Lindblad](https://technistema.com/)</br>")
       ) |>
+      # gt::tab_source_note(
+      #   gt::md(paste0("Original air date: ", air_date))
+      # ) |>
+
+
 
       gt::tab_style(
         gt::cell_text(color = "blue"),
