@@ -14,7 +14,7 @@ mod_query_corpus_ui <- function(id) {
     fluidRow(
 
       column(
-        4,
+        5,
 
 
 
@@ -50,11 +50,12 @@ tags$br(),
         shiny::textInput(ns("input_text"), width = "80%", label = "Start typing a quote from The Office", value = "That's what she said"),
 
         tags$br(),
+        tags$h4("Click a row below to see the conversation"),
         reactable::reactableOutput(ns("text_output"))
       ),
       column(1),
 
-      column(6,align = "left",
+      column(5,align = "left",
              tags$br(),
 
              # shiny::sliderInput(ns("expand_selection"), label = "Expand conversation", min = 2, max = 8, step = 2, value = 2),
@@ -89,8 +90,20 @@ mod_query_corpus_server <- function(id, r) {
       validate(
         need(input$input_text, message = "Text must be entered", label = "")
       )
-        reactable::reactable(get_text(lines, input$input_text),onClick = "select",
-                             selection = "single", defaultPageSize = 5, defaultSelected = 1)
+        reactable::reactable(
+          columns = list(
+            character = reactable::colDef(name = "Character", width = 80),
+            index = reactable::colDef(name = "index", show=F)
+          ),
+          get_text(lines, input$input_text),
+          onClick = "select",
+          selection = "single",
+          defaultPageSize = 7,
+          defaultSelected = 1,
+          highlight = T,
+          outlined = T,
+          compact = T
+        )
 
 
     })
@@ -140,35 +153,35 @@ mod_query_corpus_server <- function(id, r) {
             )}
           )
 
-        save_gt_tbl <- reactive({
-          plot_gt(
-            expand_selection(
-              selected_line_index()
-              , input$expand_selection)
-          )
-        })
+        # save_gt_tbl <- reactive({
+        #   plot_gt(
+        #     expand_selection(
+        #       selected_line_index()
+        #       , input$expand_selection)
+        #   )
+        # })
 
 
 
 
       # save image of gt
-      my_image <- reactive({
-        outfile <- tempfile(fileext = ".png")
+      # my_image <- reactive({
+      #   outfile <- tempfile(fileext = ".png")
+      #
+      #   gt::gtsave(
+      #     data = {save_gt_tbl()},
+      #     filename = outfile
+      #   )
+      #
+      # })
 
-        gt::gtsave(
-          data = {save_gt_tbl()},
-          filename = outfile
-        )
-
-      })
-
-      output$save_gt <- downloadHandler(
-        filename = "office_quote.png",
-        content = function(file) {
-          file.copy(my_image(), file)
-        },
-        contentType = "image/png"
-      )
+      # output$save_gt <- downloadHandler(
+      #   filename = "office_quote.png",
+      #   content = function(file) {
+      #     file.copy(my_image(), file)
+      #   },
+      #   contentType = "image/png"
+      # )
 
 
 
