@@ -11,9 +11,10 @@ Depends:
     R (>= 2.10)
 Imports: 
     config,
-    dplyr,
+    dplyr (>= 1.0.10),
     golem,
     gt,
+    gtExtras,
     reactable,
     shiny,
     waiter

@@ -5,7 +5,6 @@
 #' @import shiny
 #' @noRd
 app_ui <- function(request) {
-
   tagList(
     # Leave this function for adding external resources
     golem_add_external_resources(),
@@ -14,7 +13,7 @@ app_ui <- function(request) {
     tags$head(
       tags$script(src = "https://platform.twitter.com/widgets.js", charset = "utf-8"),
       tags$link(href = "https://fonts.googleapis.com/css?family=Fira+Mono", rel = "stylesheet"),
-      tags$style(HTML('
+      tags$style(HTML("
       * {
         font-family: Fira Mono;
         font-size: 100%;
@@ -33,21 +32,13 @@ app_ui <- function(request) {
         float: left;
         width: 100%;
       }
-    '))
+    "))
     ),
-
     fluidPage(
       waiter::use_waiter(),
       waiter::autoWaiter(html = waiter::spin_3(), color = waiter::transparent(0.6)),
-
-
-
-
-
-
-        mod_query_corpus_ui("query_corpus_1"),
-      )
-
+      mod_query_corpus_ui("query_corpus_1"),
+    )
   )
 }
 
@@ -66,7 +57,7 @@ golem_add_external_resources <- function() {
   )
 
   tags$head(
-    favicon(ext="png"),
+    favicon(ext = "png"),
     bundle_resources(
       path = app_sys("app/www"),
       app_title = "QuotableOffice"
