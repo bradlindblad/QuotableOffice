@@ -8,9 +8,9 @@
           <h1>the quotable office</h1>
           <br/>
           <p><p>Ever wanted to use a quote from <a href="https://www.imdb.com/title/tt0386676/">the office</a> in a text
-      convo with your friends, but couldn’t quite remember how it went?</p>
+      convo with your friends, but couldn't quite remember how it went?</p>
       <p>Now, all you have to do is start typing how you think the line goes
-      and <strong>the quotable office</strong> will find the line you’re
+      and <strong>the quotable office</strong> will find the line you're
       looking for.</p>
       <p>To use it:</p>
       <ul>
