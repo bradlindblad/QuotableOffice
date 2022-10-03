@@ -1,3 +1,16 @@
-test_that("multiplication works", {
-  expect_equal(2 * 2, 4)
+test_that("plot gt", {
+
+testthat::expect_s3_class(
+    plot_gt(lines[1,]),
+
+    "gt_tbl"
+
+
+
+
+  )
 })
+
+
+
+

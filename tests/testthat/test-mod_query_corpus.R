@@ -36,3 +36,12 @@ test_that("module ui works", {
     expect_true(i %in% names(fmls))
   }
 })
+
+test_that("textInput(input_text) works", {
+
+  testthat::expect_snapshot(mod_query_corpus_ui("query_corpus_1"))
+
+
+})
+
+
