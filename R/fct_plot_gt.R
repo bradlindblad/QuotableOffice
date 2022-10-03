@@ -32,12 +32,6 @@ plot_gt <- function(df) {
   air_date <- df |>
     dplyr::pull(air_date) |>
     unique()
-  # footer_text <- paste0(
-  #   "Source: [schrute R package](https://bradlindblad.github.io/schrute/) by [Brad Lindblad](https://technistema.com/)</br>",
-  #
-  #   "Original Air Date: ",
-  #   paste0(air_date)
-  # )
 
 
   df <- df |>
@@ -47,8 +41,6 @@ plot_gt <- function(df) {
     )) |>
     dplyr::mutate(` ` = character) |>
     dplyr::select(Character, ` `, Line = text)
-
-
 
 
   gt::gt(df) |>
@@ -68,12 +60,6 @@ plot_gt <- function(df) {
     gt::tab_source_note(
       gt::md("Source: [schrute R package](https://bradlindblad.github.io/schrute/) by [Brad Lindblad](https://technistema.com/)")
     ) |>
-    # gt::tab_source_note(
-    #   gt::md(paste0("Original air date: ", air_date))
-    # ) |>
-
-
-
     gt::tab_style(
       gt::cell_text(weight = "bold"),
       locations = gt::cells_body(
@@ -84,6 +70,4 @@ plot_gt <- function(df) {
     gt::cols_width(
       Line ~ px(600)
     )
-
-  # gt::gtsave(v, "/home/brad/Desktop/gt.png")
 }

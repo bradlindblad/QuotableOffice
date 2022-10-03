@@ -25,13 +25,6 @@ expand_selection <- function(idx = 5, number_lines = "Jim") {
   idx <- as.numeric(idx)
   split <- number_lines / 2
 
-  # line_index <- lines |>
-  #   dplyr::filter(index=idx
-  #     stringi::stri_detect_regex(text, string)
-  #   ) |> dplyr::pull(index)
-
-  # filter_seq_before <- (idx-split):idx
-  # filter_seq_after <- (idx+1):(idx+split)
 
   filter_seq_before <- idx - split
   filter_seq_after <- idx + split

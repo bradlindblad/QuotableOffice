@@ -14,8 +14,6 @@ mod_query_corpus_ui <- function(id) {
       column(
         5,
         h1("the quotable office"),
-        # column(
-        #   width = 12, align = "left",
         tags$br(),
         p(HTML('<p>Ever wanted to use a quote from <a href="https://www.imdb.com/title/tt0386676/">the office</a> in a text
 convo with your friends, but couldn’t quite remember how it went?</p>
@@ -43,23 +41,15 @@ come up</li>
       column(5,
         align = "left",
         tags$br(),
-
-        # shiny::sliderInput(ns("expand_selection"), label = "Expand conversation", min = 2, max = 8, step = 2, value = 2),
         gt::gt_output(ns("final_gt")),
         tags$br(),
         fluidRow(column(12,
           align = "center",
           selectInput(ns("expand_selection"), multiple = FALSE, choices = c("Jim", "James", "Jimothy"), selected = "Jim", label = "Expand convo", selectize = T),
         ))
-
-
-
-        # downloadButton(ns("save_gt"), label = "Save as image")
       ),
       column(1)
     ),
-    # textOutput(ns("print_interim_line_index")),
-    # DT::DTOutput(ns("bra_print")),
   )
 }
 
@@ -92,19 +82,6 @@ mod_query_corpus_server <- function(id, r) {
       )
     })
 
-    # 1.1 Print selected index from above
-    interim_row_index <- reactive(
-      input$text_output_rows_selected
-    )
-
-    # FOR PRINTING ONLY ----
-    output$print_interim_line_index <- renderPrint({
-      s <- input$text_output_rows_selected
-      if (length(s)) {
-        cat("These rows were selected:\n\n")
-        cat(s, sep = ", ")
-      }
-    })
 
     # get reactable state
     selected <- reactive(
@@ -116,15 +93,7 @@ mod_query_corpus_server <- function(id, r) {
       get_index(lines, input$input_text, selected())
     )
 
-    # FOR PRINTING ONLY ----
-    # output$bra_print <- DT::renderDT({
-    #
-    #   get_index(lines, input$input_text,  selected())
-    #   })
-
     # 3. Render gt
-
-
     output$final_gt <- gt::render_gt({
       validate(
         need(selected_line_index() > 0, message = "A line must be selected", label = "")
@@ -137,50 +106,6 @@ mod_query_corpus_server <- function(id, r) {
         )
       )
     })
-    # outputOptions(output, "final_gt", suspendWhenHidden = FALSE)
-    # save_gt_tbl <- reactive({
-    #   plot_gt(
-    #     expand_selection(
-    #       selected_line_index()
-    #       , input$expand_selection)
-    #   )
-    # })
-
-
-
-    # save image of gt
-    # my_image <- reactive({
-    #   outfile <- tempfile(fileext = ".png")
-    #
-    #   gt::gtsave(
-    #     data = {save_gt_tbl()},
-    #     filename = outfile
-    #   )
-    #
-    # })
-
-    # output$save_gt <- downloadHandler(
-    #   filename = "office_quote.png",
-    #   content = function(file) {
-    #     file.copy(my_image(), file)
-    #   },
-    #   contentType = "image/png"
-    # )
-
-
-
-
-
-    # copy for printing
-    # output$interim_line_index <-
-    #   get_text(lines, input$input_text)
-
-
-    # this returns actual index
-    # eventReactive(input$text_input, {
-    #   output$print_interim_line_index <-renderText(get_index(lines, input$text_input, interim_row_index()))
-    #
-    # })
   })
 }
 
