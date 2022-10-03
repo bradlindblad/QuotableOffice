@@ -1,0 +1,20 @@
+#' The entire script transcriptions from The Office
+#'
+#'
+#' @format A tibble with 55130 observations of 12 variables:
+#'   \describe{
+#'   \item{index}{row index}
+#'   \item{season}{season number}
+#'   \item{episode}{episode number}
+#'   \item{episode_name}{name of the episode}
+#'   \item{director}{director of the episode}
+#'   \item{writer}{name(s) of writers of the episode}
+#'   \item{character}{name of the character saying the line}
+#'   \item{text}{words spoken by that actor}
+#'   \item{text_w_direction}{words spoken by that actor with stage direction included}
+#'   \item{imdb_rating}{rating from imdb}
+#'   \item{total_votes}{total votes for episode on imdb}
+#'   \item{air_date}{date the episode originally aired}
+#'}
+#' @source \url{https://transcripts.foreverdreaming.org}
+"lines"
