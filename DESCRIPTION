@@ -14,13 +14,15 @@ Imports:
     dplyr (>= 1.0.10),
     golem,
     gt,
-    gtExtras,
     reactable,
     shiny,
+    stringi,
     waiter
 Suggests: 
+    covr,
     spelling,
-    testthat (>= 3.0.0)
+    testthat (>= 3.0.0),
+    tibble
 Config/testthat/edition: 3
 Encoding: UTF-8
 Language: en-US
