@@ -8,6 +8,7 @@
 [![R-CMD-check](https://github.com/bradlindblad/QuotableOffice/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/bradlindblad/QuotableOffice/actions/workflows/R-CMD-check.yaml)
 [![Codecov test
 coverage](https://codecov.io/gh/bradlindblad/QuotableOffice/branch/main/graph/badge.svg)](https://app.codecov.io/gh/bradlindblad/QuotableOffice?branch=main)
+
 <!-- badges: end -->
 
 The goal of QuotableOffice is to …
@@ -17,7 +18,7 @@ The goal of QuotableOffice is to …
 You can install the development version of QuotableOffice like so:
 
 ``` r
-# FILL THIS IN! HOW CAN PEOPLE INSTALL YOUR DEV PACKAGE?
+devtools::install_github('bradlindblad/quotableoffice')
 ```
 
 ## Example

@@ -36,8 +36,8 @@ plot_gt <- function(df) {
 
   df <- df |>
     dplyr::mutate(Character = dplyr::case_when(
-      character %in% headshots ~ paste0("images/", character, ".png"),
-      !character %in% headshots ~ "images/Anon.png"
+      character %in% headshots ~ paste0("inst/app/www/images/", character, ".png"),
+      !character %in% headshots ~ "inst/app/www/images/Anon.png"
     )) |>
     dplyr::mutate(` ` = character) |>
     dplyr::select(Character, ` `, Line = text)
