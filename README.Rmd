@@ -13,7 +13,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-# QuotableOffice
+# the quotable office
 
 <!-- badges: start -->
 
@@ -21,9 +21,23 @@ knitr::opts_chunk$set(
 
 <!-- badges: end -->
 
-The goal of QuotableOffice is to ...
+The quotable office is an [R shiny](https://shiny.rstudio.com/) app that leverages the [schrute R package](https://bradlindblad.github.io/schrute/) to help you find quotes from [the office](https://www.imdb.com/title/tt0386676/) given just a snippet of the line.
+
+Use the live app at <https://bradleylindblad.shinyapps.io/quotableoffice>
+
+![](inst/screenshot.png)
+
+## Usage
+
+Enter a partial quote in the input box on the left side of the app. The table below will populate all the partial matches. Once you think you have found your match, click that row and the conversation will populate the table on the right.
 
 ## Installation
+
+Install directly from Github
+
+``` R
+devtools::install_github('bradlindblad/quotableoffice')
+```
 
 You can install the development version of QuotableOffice like so:
 
@@ -31,27 +45,20 @@ You can install the development version of QuotableOffice like so:
 devtools::install_github('bradlindblad/quotableoffice', ref = "dev")
 ```
 
-## Example
+## Learning more
 
-This is a basic example which shows you how to solve a common problem:
+Julia Silge and David Robinson, creators of the [tidyText](https://www.tidytextmining.com/) both used the {schrute} package for a TidyTuesday analysis. Watch their videos and learn from the masters:
 
-```{r example}
-library(QuotableOffice)
-## basic example code
-```
+-   [David Robinson (Youtube)](https://www.youtube.com/watch?v=_IvAubTDQME&t=1092s)
 
-What is special about using `README.Rmd` instead of just `README.md`? You can include R chunks like so:
+-   [Julia Silge (Youtube)](https://www.youtube.com/watch?v=R32AsuKICAY)
 
-```{r cars}
-summary(cars)
-```
+The awesome [tidytuesday.rocks](https://nsgrantham.shinyapps.io/tidytuesdayrocks/) shiny app also aggregates 80 + sweet data visualizations that use the {schrute} package powering this app.
 
-You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date. `devtools::build_readme()` is handy for this. You could also use GitHub Actions to re-render `README.Rmd` every time you push. An example workflow can be found here: <https://github.com/r-lib/actions/tree/v1/examples>.
+## Other languages
 
-You can also embed plots, for example:
+This dataset is also available in
 
-```{r pressure, echo = FALSE}
-plot(pressure)
-```
+-   [python](https://github.com/bradlindblad/schrutepy)
 
-In that case, don't forget to commit and push the resulting figure files, so they display on GitHub and CRAN.
+-   [julia](https://github.com/bradlindblad/Schrute.jl)

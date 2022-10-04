@@ -8,3 +8,5 @@ $run_dev.*
 ^README\.Rmd$
 ^codecov\.yml$
 ^\.github$
+^app\.R$
+^rsconnect$
