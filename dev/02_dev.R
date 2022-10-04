@@ -71,7 +71,7 @@ usethis::use_github_action_check_standard()
 usethis::use_github_action_check_full()
 # Add action for PR
 usethis::use_github_action_pr_commands()
-
+usethis::use_github_actions_badge()
 # Travis CI
 usethis::use_travis()
 usethis::use_travis_badge()

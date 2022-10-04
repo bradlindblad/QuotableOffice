@@ -11,11 +11,15 @@ Depends:
     R (>= 2.10)
 Imports: 
     config,
-    dplyr,
+    dplyr (>= 1.0.10),
     golem,
     gt,
+    pkgload,
     reactable,
-    shiny
+    shiny,
+    stringi,
+    tibble (>= 3.1.8),
+    waiter
 Suggests: 
     spelling,
     testthat (>= 3.0.0)
