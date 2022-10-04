@@ -68,6 +68,7 @@ plot_gt <- function(df) {
       )
     ) |>
     gt::cols_width(
-      Line ~ px(600)
+      Line ~ gt::px(700),
+      Character ~ gt::px(200)
     )
 }
