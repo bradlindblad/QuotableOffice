@@ -37,6 +37,6 @@ test_that("module ui works", {
   }
 })
 
-test_that("textInput(input_text) works", {
+test_that("mod_query_corpus_ui() works", {
   testthat::expect_snapshot(mod_query_corpus_ui("query_corpus_1"))
 })

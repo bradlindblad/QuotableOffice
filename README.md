@@ -18,7 +18,7 @@ The goal of QuotableOffice is to …
 You can install the development version of QuotableOffice like so:
 
 ``` r
-devtools::install_github('bradlindblad/quotableoffice')
+devtools::install_github('bradlindblad/quotableoffice', ref = "dev")
 ```
 
 ## Example

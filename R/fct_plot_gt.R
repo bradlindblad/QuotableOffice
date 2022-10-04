@@ -36,8 +36,8 @@ plot_gt <- function(df) {
 
   df <- df |>
     dplyr::mutate(Character = dplyr::case_when(
-      character %in% headshots ~ paste0("inst/app/www/images/", character, ".png"),
-      !character %in% headshots ~ "inst/app/www/images/Anon.png"
+      character %in% headshots ~ paste0("https://github.com/bradlindblad/QuotableOffice/blob/dev/inst/app/www/images/", character, ".png?raw=true"),
+      !character %in% headshots ~ "https://github.com/bradlindblad/QuotableOffice/blob/dev/inst/app/www/images/Andy.png?raw=true"
     )) |>
     dplyr::mutate(` ` = character) |>
     dplyr::select(Character, ` `, Line = text)
@@ -47,8 +47,8 @@ plot_gt <- function(df) {
     gt::text_transform(
       locations = gt::cells_body(columns = Character),
       fn = function(x) {
-        gt::local_image(
-          filename = x,
+        gt::web_image(
+          url = x,
           height = as.numeric(92)
         )
       }

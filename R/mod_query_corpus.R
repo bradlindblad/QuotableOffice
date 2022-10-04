@@ -28,11 +28,13 @@ matches</li>
 come up</li>
 </ul>
 <p>Made with the <a href="https://bradlindblad.github.io/schrute/">schrute</a> R package by
-<a href="https://technistema.com/">Brad Lindblad</a></p>
+<a href="https://technistema.com/">Brad Lindblad</a>
+      <a href="https://github.com/bradlindblad/QuotableOffice"><img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" height="23" /></a>
+</p>
 
 ')),
         tags$br(),
-        shiny::textInput(ns("input_text"), width = "80%", label = "Start typing a quote from The Office", value = "That's what she said"),
+        shiny::textInput(ns("input_text"), width = "80%", label = "Start typing a quote from The Office", value = "bears. beets"),
         tags$br(),
         tags$h4("Click a row below to see the conversation"),
         reactable::reactableOutput(ns("text_output"))

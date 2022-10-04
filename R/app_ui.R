@@ -38,9 +38,10 @@ app_ui <- function(request) {
       waiter::use_waiter(),
       waiter::autoWaiter(html = waiter::spin_3(), color = waiter::transparent(0.6)),
       mod_query_corpus_ui("query_corpus_1"),
-    )
   )
-}
+  )
+  }
+
 
 #' Add external Resources to the Application
 #'

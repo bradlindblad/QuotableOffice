@@ -1,4 +1,4 @@
-# textInput(input_text) works
+# mod_query_corpus_ui() works
 
     Code
       mod_query_corpus_ui("query_corpus_1")
@@ -20,13 +20,15 @@
       come up</li>
       </ul>
       <p>Made with the <a href="https://bradlindblad.github.io/schrute/">schrute</a> R package by
-      <a href="https://technistema.com/">Brad Lindblad</a></p>
+      <a href="https://technistema.com/">Brad Lindblad</a>
+            <a href="https://github.com/bradlindblad/QuotableOffice"><img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" height="23" /></a>
+      </p>
       
       </p>
           <br/>
           <div class="form-group shiny-input-container" style="width:80%;">
             <label class="control-label" id="query_corpus_1-input_text-label" for="query_corpus_1-input_text">Start typing a quote from The Office</label>
-            <input id="query_corpus_1-input_text" type="text" class="form-control" value="That&#39;s what she said"/>
+            <input id="query_corpus_1-input_text" type="text" class="form-control" value="bears. beets"/>
           </div>
           <br/>
           <h4>Click a row below to see the conversation</h4>
