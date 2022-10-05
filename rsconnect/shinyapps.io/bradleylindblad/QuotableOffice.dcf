@@ -5,9 +5,9 @@ account: bradleylindblad
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 7199670
-bundleId: 6365838
+bundleId: 6369795
 url: https://bradleylindblad.shinyapps.io/QuotableOffice/
-when: 1664847324.75297
-lastSyncTime: 1664847324.753
+when: 1664933244.63211
+lastSyncTime: 1664933244.63214
 asMultiple: FALSE
 asStatic: FALSE
