@@ -34,9 +34,10 @@ come up</li>
 
 ')),
         tags$br(),
-        shiny::textInput(ns("input_text"), width = "80%", label = "Start typing a quote from The Office", value = "bears beets"),
+        tags$h4("1. Start typing a quote"),
+        shiny::textInput(ns("input_text"), width = "80%", label = "", value = "bears beets"),
         tags$br(),
-        tags$h4("Click a row below to see the conversation"),
+        tags$h4("2. Click a row below to see the conversation"),
         reactable::reactableOutput(ns("text_output"))
       ),
       column(1),
