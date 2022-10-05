@@ -28,7 +28,7 @@
           <br/>
           <div class="form-group shiny-input-container" style="width:80%;">
             <label class="control-label" id="query_corpus_1-input_text-label" for="query_corpus_1-input_text">Start typing a quote from The Office</label>
-            <input id="query_corpus_1-input_text" type="text" class="form-control" value="bears. beets"/>
+            <input id="query_corpus_1-input_text" type="text" class="form-control" value="bears beets"/>
           </div>
           <br/>
           <h4>Click a row below to see the conversation</h4>
