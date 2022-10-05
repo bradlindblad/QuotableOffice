@@ -26,12 +26,13 @@
       
       </p>
           <br/>
+          <h4>1. Start typing a quote</h4>
           <div class="form-group shiny-input-container" style="width:80%;">
-            <label class="control-label" id="query_corpus_1-input_text-label" for="query_corpus_1-input_text">Start typing a quote from The Office</label>
-            <input id="query_corpus_1-input_text" type="text" class="form-control" value="bears. beets"/>
+            <label class="control-label" id="query_corpus_1-input_text-label" for="query_corpus_1-input_text"></label>
+            <input id="query_corpus_1-input_text" type="text" class="form-control" value="bears beets"/>
           </div>
           <br/>
-          <h4>Click a row below to see the conversation</h4>
+          <h4>2. Click a row below to see the conversation</h4>
           <div id="query_corpus_1-text_output" class="reactable html-widget html-widget-output" style="width:auto; height:auto; " data-reactable-output="query_corpus_1-text_output"></div>
         </div>
         <div class="col-sm-1"></div>
