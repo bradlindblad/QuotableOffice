@@ -17,8 +17,11 @@ package](https://bradlindblad.github.io/schrute/) to help you find
 quotes from [the office](https://www.imdb.com/title/tt0386676/) given
 just a snippet of the line.
 
-Use the live app at
-<https://bradleylindblad.shinyapps.io/quotableoffice>
+-   Use the live app at
+    <https://bradleylindblad.shinyapps.io/quotableoffice>
+
+-   Check out the project on [RStudio
+    Cloud](https://rstudio.cloud/content/4740431)
 
 ![](inst/screenshot.png)
 
@@ -42,6 +45,14 @@ You can install the development version of QuotableOffice like so:
 ``` r
 devtools::install_github('bradlindblad/quotableoffice', ref = "dev")
 ```
+
+## Methods
+
+This is a Shiny app that uses the
+[golem](https://engineering-shiny.org/golem.html) framework. The data
+from my [schrute](https://bradlindblad.github.io/schrute/) package is
+piped to a {reactable} table, before finally arriving at a
+carefully-formatted {gt} table.
 
 ## Learning more
 
